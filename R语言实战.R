@@ -1,5 +1,0 @@
-help.start()
-install.packages("vcd")
-help(package="vcd")
-library(vcd)
-library(ggplot2)
