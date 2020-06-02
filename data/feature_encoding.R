@@ -1,3 +1,12 @@
+# feature_encoding.R
+# This R file is for the project of course:
+# Advanced Software Paradigms (CSCI 6221, Summer 2020)
+# Computer Science @ George Washington University
+# Author: Siyu Zhang
+# ------------------------------------------------------------------
+# This file includes functions that use to encode the data into numberic type
+# ------------------------------------------------------------------
+
 # libraries
 library(Boruta)
 library(mlbench)
@@ -6,11 +15,13 @@ library(caret)
 # set path
 setwd('C:/Users/Administrator/Desktop/data')
 
+
 numEncode = function(data,featureName = colnames(data)){
+    # encode data with number
+    # from 1 to the number of the species
     print('start to encode')
 
     for (feature in featureName){
-
         # record the name of the features
         names = list() # an array to store the names 
         # Search through the sample
@@ -35,6 +46,8 @@ loadData = function(filename){
     return (read.csv(filename))   
 }
 
+# ------------------------------------------------------------------
+# test
 data = loadData('raw_data.csv')
 X = data[,-length(data)]
 y = data[,length(data)]
@@ -53,8 +66,9 @@ boruta = Boruta(y ~ X,data = a, doTrace = 2)
 
 print(boruta)
 # plot the figure
+#plot(boruta)
 #plot(boruta, las = 2, cex.axis = 0.7)
-#plotImpHistory(boruta)
+plotImpHistory(boruta)
 
 # matrix 
 print(attStats(boruta))

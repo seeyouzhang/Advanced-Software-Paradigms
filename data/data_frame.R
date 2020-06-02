@@ -1,3 +1,13 @@
+# data_frame.R
+# This R file is for the project of course:
+# Advanced Software Paradigms (CSCI 6221, Summer 2020)
+# Computer Science @ George Washington University
+# Author: Siyu Zhang
+# ------------------------------------------------------------------
+# This file includes functions that provide some basic database operations for users.
+# The basic database operations includes: search, add, delete and replace
+# ------------------------------------------------------------------
+
 # set path
 setwd('C:/Users/Administrator/Desktop/data')
 
@@ -5,6 +15,7 @@ raw_data = read.csv('raw_data.csv')
 
 y = raw_data[,length(raw_data)]
 X = raw_data[,-length(raw_data)]
+
 
 MergeData = function(data1,data2,combine_by = 'row'){
     # combine data1 and data2 by column or row
@@ -21,6 +32,7 @@ MergeData = function(data1,data2,combine_by = 'row'){
     return (data)
     
 }
+
 
 delData = function(data,row_names = NULL, col_names = NULL,
                    row_index = NULL, col_index = NULL){
@@ -62,6 +74,7 @@ delData = function(data,row_names = NULL, col_names = NULL,
     return (data)
 }
 
+
 searchData = function(data,row_names = NULL, col_names = NULL,
                    row_index = NULL, col_index = NULL){
     # Users can search data by names or index
@@ -96,6 +109,7 @@ searchData = function(data,row_names = NULL, col_names = NULL,
         return (NULL)
     }
 }
+
 
 changeData = function(data,
                       row_index = NULL, col_index = NULL,

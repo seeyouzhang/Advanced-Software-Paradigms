@@ -1,8 +1,17 @@
+# feature_selection.R
+# This R file is for the project of course:
+# Advanced Software Paradigms (CSCI 6221, Summer 2020)
+# Computer Science @ George Washington University
+# Author: Siyu Zhang
+# ------------------------------------------------------------------
+# This file includes functions that use to show the importance of each feature,
+# and help users to imporove the model performance by reducing the number of features
+# ------------------------------------------------------------------
+
 # libraries
 library(Boruta)
 library(mlbench)
 library(caret)
-library(randomForest)
 
 # set path
 setwd('C:/Users/Administrator/Desktop/data')
@@ -20,6 +29,7 @@ loadData = function(filename){
 data = loadData('raw_data.csv')
 X = data[,-length(data)]
 y = data[,length(data)]
+
 
 FeatureSelection = function(data,target){
     # Feature Selection
